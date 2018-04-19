@@ -1,0 +1,488 @@
+
+<md-divider style="margin-top: 20px;"></md-divider>
+<md-toolbar>
+
+ <h3 align="center" style="color: white">Role</h3>
+ <!--  <md-input-container layout="row" layout-align="center">
+  <md-button class="md-raised" align="center" ng-click="gotoRefreshTree()">Refresh</md-button>
+</md-input-container> -->
+</md-toolbar>    
+
+
+
+
+
+<div ng-repeat='item in roleList track by $index' layout="row" layout-align="start center">
+	<!-- <div ng-repeat='item in roleList track by $index' layout="row"> -->
+
+		<md-input-container flex="30">
+      <!-- <md-input-container> -->
+        <label>Role name</label>
+        <input ng-disabled="item.textDis" type="text" ng-model="item.roleName">
+      </md-input-container>
+
+      <!-- <div flex="30"> -->
+        <div style="margin-top: 20px;" flex="30">
+         <ul class="tree">
+          <!-- <node-tree children="tc.tree"></node-tree> -->
+          <node-tree children="item.roleLevel"></node-tree>
+        </ul>
+      </div>
+<!--<md-input-container>
+			<md-icon ng-model='item._id' ng-click='gotoRemoveRole($index, roleList, $event)' md-svg-icon="images/ic_delete_forever_48px.svg"></md-icon>
+		</md-input-container> -->
+
+    <md-icon ng-click="gotoSaveRole($event, roleList)" md-svg-icon="images/floppy-disk.svg"></md-icon>
+    
+  </div>
+  
+
+
+
+
+
+<!-- 
+	<div layout="row" layout-align="space-between start">					
+
+   <div>
+     <md-icon ng-click="gotoSaveRole($event, roleList)" md-svg-icon="images/floppy-disk.svg"></md-icon>
+   </div>
+
+ </div> -->
+
+
+ <!--....................................................................................................-->
+
+ <md-divider style="margin-top: 20px;"></md-divider>
+ <md-toolbar>
+  <h3 align="center" style="color: white">Add or Remove User</h3>
+  <!--  <div class="md-toolbar-tools">Setting</div> -->
+  <md-button class="md-raised" align="center" ng-click="gotoRefreshTree()">Refresh</md-button>
+  <!-- <md-input-container layout="row" layout-align="center">
+
+  </md-input-container> -->
+</md-toolbar>  
+
+
+
+<md-content layout-padding>
+  <div>
+    <form name="userForm">
+
+      <div ng-repeat="employee in employeeList track by $index">    
+        <!-- <div layout-gt-sm="row" layout-align="space-between center"> -->
+          <div layout-gt-sm="row" layout-align="space-between start">
+
+            <md-input-container class="md-block" flex-gt-sm="15" flex>
+              <label>First-name</label>
+              <input ng-model="employee.fullname">
+            </md-input-container>
+
+            <md-input-container class="md-block" flex flex-gt-sm ="30" flex>
+              <label>Last-name</label>
+              <input ng-model="employee.lastname">
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm="15" flex>
+              <label>Password</label>
+              <input type="password" ng-model="employee.passWord">
+            </md-input-container>
+
+            <!-- <md-input-container class="md-block" flex-gt-sm="15" flex>
+              <label>Password</label>
+              <input type="password" ng-model="employee.passTemp">
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm="15" flex>
+              <label>Confirm</label>
+              <input type="password" ng-model="employee.passConfirm">
+            </md-input-container> -->
+
+            <md-input-container class="md-block" flex-gt-sm="15" flex>
+              <label>Levelcontrol</label>
+              <md-select ng-model="employee.roleLevel">
+<!--         <md-option ng-repeat="role in ['SV Admin', 'SV Assist', 'BR Admin', 'BR User'] track by $index" value="{{role}}">
+          {{role}}
+        </md-option> -->
+        <md-option ng-repeat="role in roleList track by $index" value="{{role.roleName}}">
+          {{role.roleName}}
+        </md-option>      </md-select>
+      </md-input-container>
+
+<!-- <md-input-container class="md-block" flex-gt-sm="10" flex>
+      <label>Status</label>
+      <md-select ng-model="employee.userState">
+        <md-option ng-repeat="role in ['Enable', 'Disable'] track by $index" value="{{role}}">
+          {{role}}
+        </md-option>
+      </md-select>
+    </md-input-container> -->
+    <div>
+      <md-icon ng-model='employee.userName' ng-click='removeEmployee($index)' md-svg-icon="/images/ic_delete_forever_48px.svg"></md-icon>
+    </div>
+  </div>
+
+
+</form>
+</div>
+</md-content>
+
+
+
+
+
+<div layout-gt-sm="row" layout-align="space-between center">
+<!--<md-input-container>
+      <md-button class="md-raised md-primary" ng-click="addEmployee()">Add</md-button>
+    </md-input-container> -->
+    <div>
+      <md-icon ng-click="addEmployee()" md-svg-icon="/images/ic_add_box_48px.svg"></md-icon>
+      <label>Add user</label>
+    </div>
+
+    <md-input-container>
+      <md-button class="md-raised" ng-click="saveEmployee($event)">Save</md-button>
+    </md-input-container>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--****************************fix historymedicine*****************************************-->
+<!-- <md-content layout-padding>
+<div>
+  <form name="userForm"> -->
+    <!--****************************fix historymedicine*****************************************-->
+    <!-- <div ng-repeat="historymedicine in historymedicineList track by $index">    --> 
+      <!-- <div layout-gt-sm="row" layout-align="space-between center"> -->
+        <!--   <div layout-gt-sm="row" layout-align="space-between start"> -->
+<!-- 
+
+    <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>Name</label>
+      <input ng-model="historymedicine.name">
+    </md-input-container>
+
+    <md-input-container class="md-block" flex flex-gt-sm ="30" flex>
+      <label>Surname</label>
+      <input ng-model="historymedicine.surname">
+    </md-input-container>
+  -->
+  <!--****************************fix historymedicine*****************************************-->
+   <!--  <div>
+      <md-icon ng-model='employee.userName' ng-click='removeEmployee($index)' md-svg-icon="/images/ic_delete_forever_48px.svg"></md-icon>
+    </div>
+
+
+  </div>
+
+
+</form>
+</div>
+</md-content>
+
+<div layout-gt-sm="row" layout-align="space-between center"> -->
+<!--     <md-input-container>
+      <md-button class="md-raised md-primary" ng-click="addEmployee()">Add</md-button>
+    </md-input-container> -->
+  <!--   <div>
+    <md-icon ng-click="addEmployee()" md-svg-icon="/images/ic_add_box_48px.svg"></md-icon>
+    <label>Add user</label>
+    </div>
+
+    <md-input-container>
+      <md-button class="md-raised" ng-click="saveEmployee($event)">Save</md-button>
+    </md-input-container>
+  </div> -->
+  <!--****************************fix historymedicine*****************************************-->
+
+  <!--......................................................................................-->
+
+
+
+<!--  
+<md-divider style="margin-top: 20px;"></md-divider>
+
+
+  <md-toolbar>
+      <div class="md-toolbar-tools">Patient History</div>
+    </md-toolbar>      
+
+
+<md-content layout-padding>
+<div>
+<form name="userForm">
+
+  <div ng-repeat="employee in employeeList track by $index">    
+  
+  <div ng-repeat="subj in employee.subject track by $index">    
+
+  <div layout-gt-sm="row" layout-align="start start">
+    <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>code</label>
+      <input ng-model="subj.code">
+    </md-input-container>
+     
+    <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>name</label>
+      <input ng-model="subj.name">
+    </md-input-container>
+    
+    <div>
+      <md-icon ng-model='subj' ng-click='removeSubject(employee.subject, $index)' md-svg-icon="/images/ic_delete_forever_48px.svg"></md-icon>
+    </div>
+
+    </div>
+
+    </div>
+
+  
+    <div layout-gt-sm="row" layout-align="space-between center">
+
+    <div>
+    <md-icon ng-click="addSubject(employee.subject)" md-svg-icon="/images/ic_add_box_48px.svg"></md-icon>
+    <label>Add Patient</label>
+
+    </div>
+
+    <md-input-container>
+      <md-button class="md-raised" ng-click="saveEmployee($event)">Save</md-button>
+    </md-input-container>
+
+    </div>
+
+    </div>
+
+  </form>
+ </div>
+</md-content>
+
+</div>-->
+
+
+<!--.........................history medicine.........................-->
+
+
+<!--<md-divider style="margin-top: 20px;"></md-divider>
+    <md-toolbar>
+
+      <div class="md-toolbar-tools">User&History</div>
+      <md-button class="md-raised" align="center" ng-click="gotoRefreshTree()">Refresh</md-button>
+     <md-input-container layout="row" layout-align="center">
+
+    </md-input-container>
+  </md-toolbar>  -->
+
+
+<!-- <md-content layout-padding>
+<div>
+<form name="userForm2">
+
+  <div ng-repeat="employee in employeeList track by $index">    
+  <div layout-gt-sm="row" layout-align="space-between center">
+  <div layout-gt-sm="row" layout-align="space-between start">
+
+  </md-input-container> -->
+
+<!--     <md-input-container class="md-block" flex-gt-sm="10" flex>
+      <label>Status</label>
+      <md-select ng-model="employee.userState">
+        <md-option ng-repeat="role in ['Enable', 'Disable'] track by $index" value="{{role}}">
+          {{role}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+  -->
+
+
+<!-- 
+  </div>
+
+
+</form>
+</div>
+</md-content> -->
+
+<!--<div layout-gt-sm="row" layout-align="space-between center">-->
+
+
+
+<!--     <md-input-container>
+      <md-button class="md-raised md-primary" ng-click="addEmployee()">Add</md-button>
+    </md-input-container> -->
+
+
+
+    <!--<div>
+    <md-icon ng-click="addEmployee()" md-svg-icon="/images/ic_add_box_48px.svg"></md-icon>
+    <label>Add user</label>
+    </div>
+
+    <md-input-container>
+      <md-button class="md-raised" ng-click="saveEmployee($event)">Save</md-button>
+    </md-input-container>
+  </div>-->
+
+
+<!--..............................................................
+
+
+
+ <md-divider style="margin-top: 20px;"></md-divider>
+
+
+  <md-toolbar>
+      <div class="md-toolbar-tools">Patient History</div>
+  </md-toolbar>      
+
+
+<md-content layout-padding>
+<div>
+<form name="userForm2">
+
+  <div ng-repeat="employee in employeeList track by $index">    
+  
+  <div ng-repeat="hismedicine in employee.historymedicine track by $index">    
+
+  <div layout-gt-sm="row" layout-align="start start">
+
+    <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>name</label>
+      <input ng-model="hismedicine.name">
+    </md-input-container>
+     
+    <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>surname</label>
+      <input ng-model="hismedicine.surname">
+    </md-input-container>
+
+     <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>sex</label>
+      <input ng-model="hismedicine.sex">
+    </md-input-container> 
+
+    <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>age</label>
+      <input ng-model="hismedicine.age">
+    </md-input-container>
+
+     <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>weight</label>
+      <input ng-model="hismedicine.weight">
+    </md-input-container> 
+    
+    <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>bloodtype</label>
+      <input ng-model="hismedicine.bloodtype">
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-sm="20" flex>
+      <label>namemedicine</label>
+      <input ng-model="hismedicine.namemedicine">
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>barcode</label>
+      <input ng-model="hismedicine.barcode">
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-sm="10" flex>
+      <label>morning</label>
+      <md-select ng-model="employee.morning">
+        <md-option ng-repeat="role in ['True', 'false'] track by $index" value="{{role}}">
+          {{role}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-sm="10" flex>
+      <label>afternoon</label>
+      <md-select ng-model="employee.afternoon">
+        <md-option ng-repeat="role in ['True', 'false'] track by $index" value="{{role}}">
+          {{role}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-sm="10" flex>
+      <label>evening</label>
+      <md-select ng-model="employee.evening">
+        <md-option ng-repeat="role in ['True', 'false'] track by $index" value="{{role}}">
+          {{role}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>tel</label>
+      <input ng-model="hismedicine.tel">
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-sm="15" flex>
+      <label>comment</label>
+      <input ng-model="hismedicine.comment">
+    </md-input-container>
+
+
+    <md-icon ng-model='hismedicine' ng-click='removeHistorymedicine(employee.historymedicine, $index)' md-svg-icon="/images/ic_delete_forever_48px.svg"></md-icon>
+    </div>
+
+    </div>
+
+
+
+
+    <div>
+    <md-icon ng-click="addHistorymedicine(employee.historymedicine)" md-svg-icon="/images/ic_add_box_48px.svg"></md-icon>
+    <label>Add Patient</label>
+
+    </div>
+
+
+
+
+  </div>
+
+  <div layout-gt-sm="row" layout-align="space-between center">
+
+   
+    <md-input-container>
+      <md-button class="md-raised" ng-click="saveEmployee($event)">Save</md-button>
+    </md-input-container>
+
+    </div>
+
+   </form>
+ </div>
+</md-content>  ...................................-->  

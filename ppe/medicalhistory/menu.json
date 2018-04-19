@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Home",
+    "checked": true
+  },
+  {
+    "name": "Medicalhistory",
+    "checked": true
+  },
+  {
+    "name": "Graph",
+    "checked": true
+  },
+  {
+    "name": "Contact",
+    "checked": true
+  },
+  {
+    "name": "Setting",
+    "checked": true,
+    "children": [
+      {
+        "name": "Add-Remove user",
+        "checked": true
+      },
+      {
+        "name": "Branch config",
+        "checked": true
+      }
+    ]
+  }
+]
+

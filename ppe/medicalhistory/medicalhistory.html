@@ -1,0 +1,154 @@
+<!--***************************fix patient***********************************-->
+<md-divider style="margin-top: 20px" ></md-divider>
+<md-toolbar ><br>
+<!-- 
+     <div class="md-toolbar-tools">
+      <h3 align="center">HOME</h3>            
+    </div> -->
+    <!--  <md-input-container layout="row" layout-align="center">
+    </md-input-container> -->
+    <!-- <md-icon  md-svg-icon="images/floppy-disk.svg" style="width: 60px" ></md-icon> -->
+    <h3 align="center" style="color: white">Medical History</h3><br>  
+  </md-toolbar>   
+
+  <md-content layout-padding>
+    <div>
+      <form name="userForm">
+
+        <div ng-repeat="patient in patientList track by $index"><hr>
+          <!-- <div layout-gt-sm="row" layout-align="space-between center"> -->
+
+            
+            <div layout-gt-sm="row" layout-align="space-between start"><hr><!--width="90%" style="border:1px dashed Green;" cellspacing="5" bgcolor="ForestGreen"-->
+              <md-input-container class="md-block" flex-gt-sm="6">
+                <label> Id : </label>
+                <input ng-model="patient._id">
+              </md-input-container>
+
+            
+              <md-input-container class="md-block" flex-gt-sm="6">
+                <label> Number : </label>
+                <input ng-model="patient.number">
+              </md-input-container>
+            </div>
+
+
+            <div layout-gt-sm="row" layout-align="space-between start">
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Name</label>
+                <input ng-model="patient.name">
+              </md-input-container>
+
+              <md-input-container class="md-block" flex flex-gt-sm ="10" flex>
+                <label>Surname</label>
+                <input ng-model="patient.surname">
+              </md-input-container>
+
+              <md-input-container class="md-block" flex flex-gt-sm ="10" flex>
+                <label>Sex</label>
+                <input ng-model="patient.sex">
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Age (Years.)</label>
+                <input  ng-model="patient.age">
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Weight (Kg.)</label>
+                <input  ng-model="patient.weight">
+              </md-input-container> 
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Blood type</label>
+                <input  ng-model="patient.bloodtype">
+              </md-input-container> 
+            </div>
+
+            <div layout-gt-sm="row" layout-align="space-between start">
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>House No.</label>
+                <input  ng-model="patient.house">
+              </md-input-container> 
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Village No.</label>
+                <input  ng-model="patient.village">
+              </md-input-container> 
+
+              <md-input-container class="md-block" flex-gt-sm="15" flex>
+                <label>Sub Area</label>
+                <input  ng-model="patient.subarea">
+              </md-input-container> 
+
+              <md-input-container class="md-block" flex-gt-sm="15" flex>
+                <label>Area</label>
+                <input  ng-model="patient.area">
+              </md-input-container> 
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Postal Code</label>
+                <input  ng-model="patient.postalcode">
+              </md-input-container> 
+
+            </div>
+
+            <div layout-gt-sm="row" layout-align="space-between start">
+
+              <md-input-container class="md-block" flex-gt-sm="15" flex>
+                <label>Education</label>
+                <input  ng-model="patient.education">
+              </md-input-container> 
+
+              <md-input-container class="md-block" flex-gt-sm="15" flex>
+                <label>Job</label>
+                <input  ng-model="patient.jobhis">
+              </md-input-container> 
+
+              <md-input-container class="md-block" flex-gt-sm="15" flex>
+                <label>Allergy History</label>
+                <input  ng-model="patient.allergyhistory">
+              </md-input-container> 
+              
+              <md-input-container class="md-block" flex-gt-sm="15" flex>
+                <label>Tel</label>
+                <input ng-model="patient.tel">
+              </md-input-container>
+          
+              <md-input-container class="md-block" flex-gt-sm="15" flex>
+                <label>Comment</label>
+                <input ng-model="patient.commentblock">
+              </md-input-container>
+  </div>
+
+  <div>
+    <md-icon ng-model='patient.name' ng-click='removepatient($index)' md-svg-icon="/images/ic_delete_forever_48px.svg"></md-icon>
+  </div>
+</div>
+  
+  </form>
+  </div>
+  </md-content>
+  
+  
+  
+  
+  
+  <div layout-gt-sm="row" layout-align="space-between center">
+  <!--<md-input-container>
+        <md-button class="md-raised md-primary" ng-click="addEmployee()">Add</md-button>
+      </md-input-container> -->
+      <div>
+        <md-icon ng-click="addpatient()" md-svg-icon="/images/ic_add_box_48px.svg"></md-icon>
+        <label>Add Patient</label>
+      </div>
+  
+      <md-input-container>
+        <md-button class="md-raised" ng-click="savePatient($event)">Save</md-button>
+      </md-input-container>
+    </div>
+  
+
+

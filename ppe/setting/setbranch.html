@@ -1,0 +1,86 @@
+    <md-input-container layout="row" layout-align="end start">
+      <md-button class="md-raised" ng-click="gotoClearAllBranch($event)">Clear-Update-All</md-button>
+      <md-button class="md-raised" ng-click="gotoUpdateAllBranch($event)">Update-All</md-button>
+      <md-button class="md-raised" ng-click="gotoRefreshBranch()">Refresh</md-button>
+    </md-input-container>
+
+      <div grid-data id='griSettBranch' grid-options="griSettBranch" grid-actions="gridSettBrs">
+
+            <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="orderIdFilter">Search by ID #</label>
+                    <input id="orderIdFilter" type="text" class="form-control order-search-box"
+                           placeholder="Enter ID #"
+                           ng-change="gridSettBrs.filter()"
+                           ng-model="branchID"
+                           filter-by="branchID"
+                           filter-type="text">
+                </div>
+            </div>
+            </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="items">{{filtered.length}} items total</span>
+                    </div>
+                    <div class="col-md-9 text-right">
+                        <form class="form-inline pull-right margin-bottom-basic">
+                            <div class="form-group">
+                                <grid-pagination max-size="5"
+                                                 boundary-links="true"
+                                                 class="pagination-sm"
+                                                 total-items="paginationOptions.totalItems"
+                                                 ng-model="paginationOptions.currentPage"
+                                                 ng-change="reloadGrid()"
+                                                 items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
+                            </div>
+                            <div class="form-group items-per-page">
+                                <label for="itemsOnPageSelect1">Items per page:</label>
+                                <select id="itemsOnPageSelect1" class="form-control input-sm" ng-init="paginationOptions.itemsPerPage = '10'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()">
+                                    <option>10</option>
+                                    <option>25</option>
+                                    <option>50</option>
+                                    <option>75</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+        <table class="table table-striped">
+   
+          <thead>
+            <tr>
+              <th rowspan="2">ID</th>
+              <th rowspan="2">Name</th>
+              <th rowspan="2">Update</th>
+              <th rowspan="2">Report</th>
+              <th rowspan="2">Status</th>
+              <th rowspan="2" style="text-align: right;">IP</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- <tr grid-item ng-click="branchDetail(item, $event)"> -->
+            <tr grid-item>
+              <td width="15%" ng-bind="item.branchID" ng-click="gotoBranchDetail(item.branchID, $event);"></td>
+              <td width="40%" ng-bind="item.branchName"></td>
+              <td width="10%" ng-bind="item.update" ng-click="gotoUpdateOneBranch(item.branchID, item.branchName, $event);"></td>
+              <td width="10%" ng-bind="item.report" ng-click="gotoClearReport(item.branchID, item.branchName, $event);"></td>
+              <td width="10%" ng-bind="item.status" ng-click="gotoRemoveBranch(item.branchID, item.branchName, $event);"></td>
+              <td width="15%" ng-disabled="true" ng-bind="item.clientIP" style="text-align: right;" ng-click="gotoBranchConfig(item.clientIP, item.status, $event);"></td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+    <md-divider></md-divider>
+
+
+  <!-- <iframe style="border-style: hidden;" width="1024" height="800" ng-src="{{detailFrame}}" onLoad="uploadDone();"></iframe> -->
+  <iframe style="border-style: hidden;" width="1048" height="800" ng-src="{{detailFrame}}"></iframe>
+

@@ -1,0 +1,100 @@
+<!--***************************fix patient***********************************-->
+<md-divider style="margin-top: 20px" ></md-divider>
+<md-toolbar ><br>
+<!-- 
+     <div class="md-toolbar-tools">
+      <h3 align="center">HOME</h3>            
+    </div> -->
+    <!--  <md-input-container layout="row" layout-align="center">
+    </md-input-container> -->
+    <!-- <md-icon  md-svg-icon="images/floppy-disk.svg" style="width: 60px" ></md-icon> -->
+    <h3 align="center" style="color: white">Add Drug</h3><br>  
+  </md-toolbar>   
+
+  <md-content layout-padding>
+    <div>
+      <form name="userForm">
+
+        <div ng-repeat="drug in drugList track by $index"><hr>
+          <!-- <div layout-gt-sm="row" layout-align="space-between center"> -->
+
+              <div layout-gt-sm="row" layout-align="space-between start"><hr><!--width="90%" style="border:1px dashed Green;" cellspacing="5" bgcolor="ForestGreen"-->
+                <md-input-container class="md-block" flex-gt-sm="6">
+                  <label> Id : </label>
+                  <input ng-model="drug._id">
+                </md-input-container>
+              </div>
+
+            <div layout-gt-sm="row" layout-align="space-between start"><hr><!--width="90%" style="border:1px dashed Green;" cellspacing="5" bgcolor="ForestGreen"-->
+              <md-input-container class="md-block" flex-gt-sm="6">
+                <label>Day</label>
+                <input ng-model="drug.day">
+              </md-input-container>
+            </div>
+
+
+            <div layout-gt-sm="row" layout-align="space-between start">
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Duration</label>
+                <input ng-model="drug.duration">
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Barcode</label>
+                <input ng-model="drug.barcode">
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                  <label>Namemedical</label>
+                  <input ng-model="drug.namemedical">
+                </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Druglabel</label>
+                <input ng-model="drug.druglabel">
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Time</label>
+                <input ng-model="drug.time">
+              </md-input-container>
+              
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Check</label>
+                <input ng-model="drug.check">
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm="10" flex>
+                <label>Drugaddict</label>
+                <input ng-model="drug.drugaddict">
+              </md-input-container>
+
+
+              <div>
+                <md-icon ng-model='drug._id' ng-click='removedrug($index)' md-svg-icon="/images/ic_delete_forever_48px.svg"></md-icon>
+              </div>
+            </div>
+          
+          
+          </form>
+          </div>
+          </md-content>
+          
+          
+          
+          
+          
+          <div layout-gt-sm="row" layout-align="space-between center">
+          <!--<md-input-container>
+                <md-button class="md-raised md-primary" ng-click="addEmployee()">Add</md-button>
+              </md-input-container> -->
+              <div>
+                <md-icon ng-click="adddrug()" md-svg-icon="/images/ic_add_box_48px.svg"></md-icon>
+                <label>Add Drug</label>
+              </div>
+          
+              <md-input-container>
+                <md-button class="md-raised" ng-click="saveDrug($event)">Save</md-button>
+              </md-input-container>
+            </div>

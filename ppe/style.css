@@ -1,0 +1,60 @@
+html, body {  
+	overflow-x: hidden; 
+	overflow-y: hidden;
+  height: 100%; 
+  width: 100%; 
+  margin: 0; 
+  background: linear-gradient(to top , rgb(247, 221, 168), white); 
+} 
+
+.serverController .md-button {
+  text-transform: capitalize !important;
+  border-radius : 10px;
+  /*margin-top: 2px;*/
+  /*text-align: center;*/
+  /*height: 30px;*/
+}
+
+.serverController md-toolbar {
+  background-color:#753a00 !important;
+  font-color:white;
+
+  /*min-height: 30px;*/
+}
+
+.serverController md-nav-bar .md-nav-bar {
+  background: #331a01 !important;
+  border-radius : 10px;
+
+}
+
+.
+
+ul.tree {
+    list-style: none;
+}
+
+ul.tree > li {
+    margin: 10px;
+}
+
+ul.tree > li > span {
+    cursor: pointer;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+}
+
+/*.md-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;*/
